@@ -27,6 +27,14 @@ public class Authority {
     @JsonIgnore
     private Set<User> users = new HashSet<>();
 
+    public boolean addUser(User user){
+        return  users.add(user);
+    }
+
+    public boolean removeUser(User user){
+        return  users.remove(user);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

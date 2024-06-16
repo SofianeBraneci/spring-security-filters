@@ -33,7 +33,15 @@ public class User {
             inverseJoinColumns = {@JoinColumn(name = "auth_id", referencedColumnName = "id")})
     private Set<Authority> authorities = new HashSet<>();
 
+    public boolean addAuthority(Authority a){
+        a.addUser(this);
+        return authorities.add(a);
+    }
 
+    public boolean removeAuthority(Authority a){
+        a.removeUser(this);
+        return authorities.remove(a);
+    }
 
     @Override
     public boolean equals(Object o) {
