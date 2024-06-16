@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: spring security filters
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=app
+    username: app_rw
+    password: azerty
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show-sql: true
+        format_sql: true
+
+server:
+  servlet:
+    context: /app
+  port: 8080
+
+
+logging:
+  com.springframework.security: TRACE
+
