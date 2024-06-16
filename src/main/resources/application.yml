@@ -15,10 +15,14 @@ spring:
 
 server:
   servlet:
-    context: /app
+    context-path: /app
   port: 8080
 
 
 logging:
-  com.springframework.security: TRACE
+  level:
+    org.springframework.security: TRACE
+    org:
+      hibernate:
+        SQL: TRACE
 
