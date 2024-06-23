@@ -1,5 +1,6 @@
 package com.learn.config;
 
+import com.learn.security.AuthenticationLoggingFilter;
 import com.learn.security.ResquestValidationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,6 +24,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.httpBasic(Customizer.withDefaults());
         http.addFilterBefore(new ResquestValidationFilter(), BasicAuthenticationFilter.class);
+        http.addFilterAfter(new AuthenticationLoggingFilter(), BasicAuthenticationFilter.class);
         http.authorizeHttpRequests(c -> c
                 .requestMatchers(new AntPathRequestMatcher("/users/**"))
                     .authenticated()
